@@ -43,7 +43,9 @@ direct access to a company’s purchase order system in order to:
 
 
 • Generate and place purchase orders.
+
 • Make enquiries about previously placed orders.
+
 • Note the delivery for ordered goods so that invoices can be paid when all the goods have been
 delivered.
 
