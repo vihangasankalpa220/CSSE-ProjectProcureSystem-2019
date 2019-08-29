@@ -45,7 +45,7 @@ class App extends Component {
           <MDBNavbar color="indigo" dark expand="md" fixed="top" scrolling>
             <MDBNavbarBrand href="/" className="py-0 font-weight-bold">
               <Logo style={{ height: "2.5rem", width: "2.5rem" }} />
-              <strong className="align-middle">MDB React</strong>
+              <strong className="align-middle">Procurement System</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler
               onClick={this.toggleCollapse("mainNavbarCollapse")}
@@ -129,6 +129,14 @@ class App extends Component {
                     <strong>Addons</strong>
                   </MDBNavLink>
                 </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                      onClick={this.closeCollapse("mainNavbarCollapse")}
+                      to="/v1"
+                  >
+                    <strong>Development</strong>
+                  </MDBNavLink>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>
@@ -139,7 +147,7 @@ class App extends Component {
           <MDBFooter color="indigo">
             <p className="footer-copyright mb-0 py-3 text-center">
               &copy; {new Date().getFullYear()} Copyright:
-              <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+              Procurement System | Contributors Asiri, Vihaga, Jananath and Chinthaka
             </p>
           </MDBFooter>
         </div>
