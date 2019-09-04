@@ -9,6 +9,9 @@ import ModalsNavPage from "./pages/ModalsNavPage";
 import AdvancedNavPage from "./pages/AdvancedNavPage";
 import ComponentsNavPage from "./pages/ComponentsNavPage";
 
+//imports from Banuka
+import Banuka from './components/banuka/Banuka'
+
 // FREE
 import AnimationPage from "./pages/AnimationPage";
 import AlertPage from "./pages/AlertPage";
@@ -75,6 +78,9 @@ class Routes extends React.Component {
         <Route exact path="/modals" component={ModalsNavPage} />
         <Route exact path="/navigation" component={NavigationNavPage} />
         <Route exact path="/tables" component={TablesNavPage} />
+
+        {/* Routes of Banuka */}
+        <Route exact path="/banuka" component={Banuka}></Route>
 
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />
