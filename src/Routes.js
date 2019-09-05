@@ -8,6 +8,7 @@ import AddonsNavPage from "./pages/AddonsNavPage";
 import ModalsNavPage from "./pages/ModalsNavPage";
 import AdvancedNavPage from "./pages/AdvancedNavPage";
 import ComponentsNavPage from "./pages/ComponentsNavPage";
+import V1HomePage from "./pages/temp/v1_home_page";
 
 //imports from Banuka
 import Banuka from './components/banuka/Banuka'
@@ -69,6 +70,24 @@ class Routes extends React.Component {
   render() {
     return (
       <Switch>
+          {/* All V1 release pages */}
+          <Route exact path="/v1" component={V1HomePage} />
+
+          {/* Routs for Asiri */}
+
+          {/* end of Routs for asiri */}
+
+
+          {/* Routs for jananath */}
+
+          {/* end of Routs for jananath */}
+
+
+          {/* Routs for jananath */}
+
+          {/* end of Routs for jananath */}
+
+
         <Route exact path="/" component={HomePage} />
         <Route exact path="/addons" component={AddonsNavPage} />
         <Route exact path="/advanced" component={AdvancedNavPage} />
