@@ -5,7 +5,6 @@ import {
   MDBRow,
   MDBCol,
   MDBJumbotron,
-  MDBIcon,
   MDBAnimation
 } from "mdbreact";
 import MenuLink from "./../../components/menuLink";
@@ -20,16 +19,18 @@ const V1HomePage = () => {
             <MDBCol md="8" className="mx-auto">
                 <MDBJumbotron className="mt-3">
                   <h1 className="text-center">
-                    <MDBIcon icon="css3" brand className="indigo-text mr-w" />
                     Procurement System V1
                   </h1>
                   <p>Add all page links here (only for development purpose)</p>
                   <ul className="list-unstyled example-components-list">
                     {/*Vendor Management*/}
-                    <h6 className="mt-3 grey-text"><strong>Vendor Management - Asiri</strong></h6>
-                    <MenuLink to="/css/animations" title="Vendor Management" />
-                    <MenuLink to="/css/animations" title="Vendor Management" />
-                    <MenuLink to="/css/animations" title="Vendor Management" />
+                    <h6 className="mt-3 grey-text"><strong>Asiri</strong></h6>
+                    <MenuLink to="/vendor/add" title="Add Vendor" />
+                    <MenuLink to="/vendor/all" title="View All Vendors" />
+                    <MenuLink to="/vendor/update" title="Update Vendor" />
+                    <MenuLink to="/vendor/details" title="View One Vendor" />
+                    <MenuLink to="/vendor/dashboard" title="Dashboard" />
+                    <MenuLink to="/vendor/reporting" title="Reporting" />
                     
                     {/*Purchase Invoices*/}
                     <h6 className="mt-3 grey-text"><strong>Purchase Invoices - Jananath</strong></h6>

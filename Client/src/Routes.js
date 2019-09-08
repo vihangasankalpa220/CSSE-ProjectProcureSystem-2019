@@ -8,7 +8,16 @@ import AddonsNavPage from "./pages/AddonsNavPage";
 import ModalsNavPage from "./pages/ModalsNavPage";
 import AdvancedNavPage from "./pages/AdvancedNavPage";
 import ComponentsNavPage from "./pages/ComponentsNavPage";
+//imports from Common home page
 import V1HomePage from "./pages/temp/v1_home_page";
+
+//imports from Asiri
+import AddVendor from "./asiri/pages/addVendor";
+import Reporting from "./asiri/pages/reporting";
+import UpdateVendor from "./asiri/pages/UpdateVendor";
+import ViewAllVendors from "./asiri/pages/viewAllVendors";
+import ViewVendorDetails from "./asiri/pages/viewVendorDetails";
+import VendorDashboard from "./asiri/pages/vendorDashboard";
 
 //imports from Banuka
 import Banuka from './components/banuka/Banuka'
@@ -74,6 +83,12 @@ class Routes extends React.Component {
           <Route exact path="/v1" component={V1HomePage} />
 
           {/* Routs for Asiri */}
+          <Route exact path="/vendor/add" component={AddVendor} />
+          <Route exact path="/vendor/reporting" component={Reporting} />
+          <Route exact path="/vendor/update" component={UpdateVendor} />
+          <Route exact path="/vendor/all" component={ViewAllVendors} />
+          <Route exact path="/vendor/details" component={ViewVendorDetails} />
+          <Route exact path="/vendor/dashboard" component={VendorDashboard} />
 
           {/* end of Routs for asiri */}
 
@@ -100,6 +115,15 @@ class Routes extends React.Component {
 
         {/* Routes of Banuka */}
         <Route exact path="/banuka" component={Banuka}></Route>
+
+        {/* Routes of Asiri */}
+        <Route exact path="/vendor/add" component={AddVendor}></Route>
+        <Route exact path="/vendor/add" component={AddVendor} ></Route>
+        <Route exact path="/vendor/reporting" component={Reporting}></Route>
+        <Route exact path="/vendor/update" component={UpdateVendor} ></Route>
+        <Route exact path="/vendor/all" component={ViewAllVendors} ></Route>
+        <Route exact path="/vendor/details" component={ViewVendorDetails}></Route>
+        <Route exact path="/vendor/dashboard" component={VendorDashboard} ></Route>
 
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />
