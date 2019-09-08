@@ -3,7 +3,16 @@ import {
     MDBContainer,
     MDBRow,
     MDBCol,
-    MDBAnimation
+    MDBAnimation,
+    MDBCardGroup,
+    MDBCard,
+    MDBCardImage,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+    MDBBtn,
+    MDBFormInline,
+    MDBIcon
 } from "mdbreact";
 import SectionContainer from "../../components/sectionContainer";
 
@@ -13,50 +22,160 @@ const ViewAllVendors = () => {
             <MDBContainer className="mt-5">
                 <MDBAnimation type="zoomIn" duration="500ms">
                     <MDBContainer>
-                        <MDBRow>
-                            <MDBCol md="8" className="mx-auto">
-                                <SectionContainer header="Add New Vendor">
-                                    <form>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputEmail4">Email</label>
-                                                <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputPassword4">Password</label>
-                                                <input type="password" className="form-control" id="inputPassword4" placeholder="Password" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="inputAddress">Address</label>
-                                            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="inputAddress2">Address 2</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="inputAddress2"
-                                                placeholder="Apartment, studio, or floor"
-                                            />
-                                        </div>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputCity">City</label>
-                                                <input type="text" className="form-control" id="inputCity" placeholder="New York City" />
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputZip">Zip</label>
-                                                <input type="text" className="form-control" id="inputZip" placeholder="11206-1117" />
-                                            </div>
-                                        </div>
-                                        <button type="submit" className="btn btn-primary btn-md">
-                                            Sign in
-                                        </button>
+                        <SectionContainer header="All Vendorss">
+                            <MDBRow>
+                                <MDBCol md="4">
+                                    <label>Country</label>
+                                    <form className="form-inline active-cyan-4 mb-4">
+
+                                        <input
+                                            className="form-control form-control-sm mr-3 w-75"
+                                            type="text"
+                                            placeholder="Search"
+                                            aria-label="Search"
+                                        />
+                                        <MDBIcon icon="search" aria-hidden="true" />
                                     </form>
-                                </SectionContainer>
+                                </MDBCol>
+                                <MDBCol md="4">
+                                    <label>Inventory</label>
+                                    <form className="form-inline active-cyan-4 mb-4">
+                                        <input
+                                            className="form-control form-control-sm mr-3 w-75"
+                                            type="text"
+                                            placeholder="Search"
+                                            aria-label="Search"
+                                        />
+                                        <MDBIcon icon="search" aria-hidden="true" />
+                                    </form>
+                                </MDBCol>
+                                <MDBCol md="4">
+                                    <label>Other</label>
+                                    <form className="form-inline active-cyan-4 mb-4">
+                                        <input
+                                            className="form-control form-control-sm mr-3 w-75"
+                                            type="text"
+                                            placeholder="Search"
+                                            aria-label="Search"
+                                        />
+                                        <MDBIcon icon="search" aria-hidden="true" />
+                                    </form>
+                                </MDBCol>
+                            </MDBRow>
+                        <MDBRow>
+                            <MDBCol md="3" className="mx-auto">
+                                    <MDBCardGroup deck className="mt-3">
+                                        <MDBCard>
+                                            <MDBCardImage
+                                                src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                                alt="MDBCard image cap"
+                                                top
+                                                hover
+                                                overlay="white-slight"
+                                            />
+                                            <MDBCardBody>
+                                                <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                                <MDBCardText>
+                                                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                                                </MDBCardText>
+                                                <MDBBtn color="light-blue" size="md">
+                                                    read more
+                                                </MDBBtn>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </MDBCardGroup>
                             </MDBCol>
+                            <MDBCol md="3" className="mx-auto">
+                                <MDBCardGroup deck className="mt-3">
+                                    <MDBCard>
+                                        <MDBCardImage
+                                            src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                            alt="MDBCard image cap"
+                                            top
+                                            hover
+                                            overlay="white-slight"
+                                        />
+                                        <MDBCardBody>
+                                            <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                            <MDBCardText>
+                                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                            </MDBCardText>
+                                            <MDBBtn color="light-blue" size="md">
+                                                read more
+                                            </MDBBtn>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCardGroup>
+                            </MDBCol>
+                            <MDBCol md="3" className="mx-auto">
+                                <MDBCardGroup deck className="mt-3">
+                                    <MDBCard>
+                                        <MDBCardImage
+                                            src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                            alt="MDBCard image cap"
+                                            top
+                                            hover
+                                            overlay="white-slight"
+                                        />
+                                        <MDBCardBody>
+                                            <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                            <MDBCardText>
+                                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                            </MDBCardText>
+                                            <MDBBtn color="light-blue" size="md">
+                                                read more
+                                            </MDBBtn>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCardGroup>
+                            </MDBCol>
+                            <MDBCol md="3" className="mx-auto">
+                                <MDBCardGroup deck className="mt-3">
+                                    <MDBCard>
+                                        <MDBCardImage
+                                            src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                            alt="MDBCard image cap"
+                                            top
+                                            hover
+                                            overlay="white-slight"
+                                        />
+                                        <MDBCardBody>
+                                            <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                            <MDBCardText>
+                                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                            </MDBCardText>
+                                            <MDBBtn color="light-blue" size="md">
+                                                read more
+                                            </MDBBtn>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCardGroup>
+                            </MDBCol>
+                            <MDBCol md="3" className="mx-auto">
+                                <MDBCardGroup deck className="mt-3">
+                                    <MDBCard>
+                                        <MDBCardImage
+                                            src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                            alt="MDBCard image cap"
+                                            top
+                                            hover
+                                            overlay="white-slight"
+                                        />
+                                        <MDBCardBody>
+                                            <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                            <MDBCardText>
+                                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                            </MDBCardText>
+                                            <MDBBtn color="light-blue" size="md">
+                                                read more
+                                            </MDBBtn>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCardGroup>
+                            </MDBCol>
+
                         </MDBRow>
+                        </SectionContainer>
                     </MDBContainer>
                 </MDBAnimation>
             </MDBContainer>

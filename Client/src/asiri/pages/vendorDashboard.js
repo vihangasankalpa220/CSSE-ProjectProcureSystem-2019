@@ -6,6 +6,57 @@ import {
     MDBAnimation
 } from "mdbreact";
 import SectionContainer from "../../components/sectionContainer";
+import {Bar} from "react-chartjs-2";
+// barChart
+const dataBar = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    datasets: [
+        {
+            label: "#1",
+            data: [12, 39, 3, 50, 2, 32, 84],
+            backgroundColor: "rgba(245, 74, 85, 0.5)",
+            borderWidth: 1
+        },
+        {
+            label: "#2",
+            data: [56, 24, 5, 16, 45, 24, 8],
+            backgroundColor: "rgba(90, 173, 246, 0.5)",
+            borderWidth: 1
+        },
+        {
+            label: "#3",
+            data: [12, 25, 54, 3, 15, 44, 3],
+            backgroundColor: "rgba(245, 192, 50, 0.5)",
+            borderWidth: 1
+        }
+    ]
+};
+const barChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        xAxes: [
+            {
+                barPercentage: 1,
+                gridLines: {
+                    display: true,
+                    color: "rgba(0, 0, 0, 0.1)"
+                }
+            }
+        ],
+        yAxes: [
+            {
+                gridLines: {
+                    display: true,
+                    color: "rgba(0, 0, 0, 0.1)"
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }
+        ]
+    }
+};
 
 const VendorDashboard = () => {
     return (
@@ -14,46 +65,9 @@ const VendorDashboard = () => {
                 <MDBAnimation type="zoomIn" duration="500ms">
                     <MDBContainer>
                         <MDBRow>
-                            <MDBCol md="8" className="mx-auto">
-                                <SectionContainer header="Add New Vendor">
-                                    <form>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputEmail4">Email</label>
-                                                <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputPassword4">Password</label>
-                                                <input type="password" className="form-control" id="inputPassword4" placeholder="Password" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="inputAddress">Address</label>
-                                            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="inputAddress2">Address 2</label>
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="inputAddress2"
-                                                placeholder="Apartment, studio, or floor"
-                                            />
-                                        </div>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputCity">City</label>
-                                                <input type="text" className="form-control" id="inputCity" placeholder="New York City" />
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label htmlFor="inputZip">Zip</label>
-                                                <input type="text" className="form-control" id="inputZip" placeholder="11206-1117" />
-                                            </div>
-                                        </div>
-                                        <button type="submit" className="btn btn-primary btn-md">
-                                            Sign in
-                                        </button>
-                                    </form>
+                            <MDBCol md="12" className="mx-auto">
+                                <SectionContainer header="Dashboard">
+                                    <Bar data={dataBar} options={barChartOptions} />
                                 </SectionContainer>
                             </MDBCol>
                         </MDBRow>

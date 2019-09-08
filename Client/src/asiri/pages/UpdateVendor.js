@@ -15,7 +15,7 @@ const UpdateVendor = () => {
                     <MDBContainer>
                         <MDBRow>
                             <MDBCol md="8" className="mx-auto">
-                                <SectionContainer header="Add New Vendor">
+                                <SectionContainer header="Update Vendor">
                                     <form>
                                         <div className="form-row">
                                             <div className="form-group col-md-6">
