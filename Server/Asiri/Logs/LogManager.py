@@ -9,7 +9,7 @@ class LogManager:
         self.enableDebug = self.config.getConfig('system', 'debug')
 
     # log messages
-    def log(self,message):
+    def log(self, message):
         try:
             if self.enableDebug:
                 # Create and configure logger
@@ -18,7 +18,7 @@ class LogManager:
                                     format='%(levelname)s:%(asctime)s:%(message)s')
                   
                 # Creating an object
-                logger=logging.getLogger() 
+                logger = logging.getLogger()
                   
                 # Setting the threshold of logger to DEBUG
                 logger.setLevel(logging.DEBUG)

@@ -32,11 +32,11 @@ class MongoDB:
             quit()
         
     # get collection
-    def getcollection(self,collection):
+    def getcollection(self, collection):
         return self.database[str(collection)]
 
     # Insert object
-    def insert(self,jsonObject):
+    def insert(self, jsonObject):
         try:
             result = self.collection.insert_one(jsonObject)
             if self.enableDebug:
@@ -62,7 +62,7 @@ class MongoDB:
         
     # Delete object
     def delete(self, key, value):
-        myquery = { str(key): str(value) }
+        myquery = {str(key): str(value)}
         x = self.collection.delete_one(myquery)
         if x.deleted_count > 0 :
             return True
@@ -96,7 +96,7 @@ class MongoDB:
     # Find strings starts with the input  letter or higher
     def search(self,key,value):
         result = []
-        myquery = { str(key) : str(value)}
+        myquery = {str(key): str(value)}
         mydoc = self.collection.find(myquery)
         for x in mydoc:
             result.append(x)
