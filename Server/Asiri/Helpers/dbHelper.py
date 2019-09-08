@@ -9,13 +9,13 @@ class MongoDB:
     collection = None
     myClient = None
     database = None
-    enableDebug = True
+    enableDebug = False
     logManager = None
 
     # connect remote DB
     def __init__(self):
         self.config = Config()
-        self.enableDebug = self.config.getConfig('system','debug')
+        self.enableDebug = self.config.getConfig('system', 'debug')
         self.logManager = LogManager()
         try:
             # mongodb+srv://<username>:<password>@cluster0-lok9v.mongodb.net/test?retryWrites=true&w=majority
@@ -47,10 +47,10 @@ class MongoDB:
             return {'status': '500', 'data' : '', 'err':e}
         
     # Update object
-    def update(self,key,old,new):
+    def update(self, key, old, new):
         try:
-            myquery = { str(key): str(old) }
-            newvalues = { "$set": { str(key): str(new) } }
+            myquery = {str(key): str(old) }
+            newvalues = {"$set": {str(key): str(new)}}
             result = self.collection.update_one(myquery, newvalues)
             if self.enableDebug:
                 self.logManager.log(result)
@@ -64,7 +64,7 @@ class MongoDB:
     def delete(self, key, value):
         myquery = {str(key): str(value)}
         x = self.collection.delete_one(myquery)
-        if x.deleted_count > 0 :
+        if x.deleted_count > 0:
             return True
         else:
             return False
@@ -79,7 +79,7 @@ class MongoDB:
                 print('[Debug DB Helper - findone] '+result)
             return {'status': '200', 'data' : jsonify(result), 'err':''}
         except Exception as e:
-            return {'status': '404', 'data' : '', 'err': e}
+            return {'status': '404', 'data': '', 'err': e}
 
     # Find single object
     def find(self,key,value):
