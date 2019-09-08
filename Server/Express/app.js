@@ -20,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/data', itemsRouter);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -36,5 +35,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//-------------------Express App Runs in port 3001 ------- modify dummy data set and use for now ----------
 
 module.exports = app;
