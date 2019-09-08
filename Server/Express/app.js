@@ -1,9 +1,24 @@
 const createError = require('http-errors');
-const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const app = express();
+var express = require("express")
+var cors = require("cors")
+var bodyParser = require("body-parser")
+var app = express()
+var mongoose = require("mongoose")
+
+var port = process.env.PORT || 5000
+
+///Author : Vihanga
+
+app.use(bodyParser.json())
+app.use(cors())
+app.use(
+    bodyParser.urlencoded({
+      extended: false
+    })
+)
 
 //dummy route
 const itemsRouter = require('./routes/dummyDataProvider');
@@ -19,6 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/data', itemsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -36,6 +52,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//-------------------Express App Runs in port 3001 ------- modify dummy data set and use for now ----------
+const mongoURI='mongodb://localhost:27017/procuresystem'
+
+mongoose.connect(mongoURI,{useNewUrlParser:true})
+    .then(()=>console.log("MongoDB Connected"))
+    .catch(err=>console.log(err))
+
+
+const Users = require('./routes/Users');
+
+app.use('/users', Users)
+
+app.listen(port, () => {
+  console.log("Server is running on port: " + port)
+})
+
 
 module.exports = app;
