@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { MDBRow, MDBIcon } from "mdbreact";
 
 export default class Banuka extends Component{
     render(){
