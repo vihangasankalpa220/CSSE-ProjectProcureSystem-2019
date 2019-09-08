@@ -71,10 +71,10 @@ class ViewAllVendors extends Component {
                         <MDBCol md="4">
                             <label>Name</label>
                             <form className="form-inline active-cyan-4 mb-4">
-
                                 <input
                                     className="form-control form-control-sm mr-3 w-75"
                                     type="text"
+                                    autoFocus
                                     placeholder="Search"
                                     aria-label="Search"
                                     value={this.state.searchValue1}
