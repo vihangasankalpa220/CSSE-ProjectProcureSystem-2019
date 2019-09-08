@@ -12,241 +12,92 @@ import {
     MDBCardText,
     MDBBtn,
     MDBIcon,
-    MDBInput,
-    MDBFormInline,
-    MDBModal,
-    MDBModalHeader,
-    MDBModalBody,
     MDBListGroup,
-    MDBListGroupItem,
-    MDBModalFooter
 } from "mdbreact";
 import SectionContainer from "../../components/sectionContainer";
 
-const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Antigua and Barbuda",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Barbados",
-    "Belarus",
-    "Belgium",
-    "Belize",
-    "Benin",
-    "Bhutan",
-    "Bolivia",
-    "Bosnia and Herzegovina",
-    "Botswana",
-    "Brazil",
-    "Brunei",
-    "Bulgaria",
-    "Burkina Faso",
-    "Burundi",
-    "Cabo Verde",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Central African Republic (CAR)",
-    "Chad",
-    "Chile",
-    "China",
-    "Colombia",
-    "Comoros",
-    "Costa Rica",
-    "Cote d'Ivoire",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-    "Denmark",
-    "Djibouti",
-    "Dominica",
-    "Dominican Republic",
-    "Ecuador",
-    "Egypt",
-    "El Salvador",
-    "Equatorial Guinea",
-    "Eritrea",
-    "Estonia",
-    "Ethiopia",
-    "Fiji",
-    "Finland",
-    "France",
-    "Gabon",
-    "Gambia",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Grenada",
-    "Guatemala",
-    "Guinea",
-    "Guinea-Bissau",
-    "Guyana",
-    "Haiti",
-    "Honduras",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kiribati",
-    "Kosovo",
-    "Kuwait",
-    "Kyrgyzstan",
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lesotho",
-    "Liberia",
-    "Libya",
-    "Liechtenstein",
-    "Lithuania",
-    "Luxembourg",
-    "Macedonia (FYROM)",
-    "Madagascar",
-    "Malawi",
-    "Malaysia",
-    "Maldives",
-    "Mali",
-    "Malta",
-    "Marshall Islands",
-    "Mauritania",
-    "Mauritius",
-    "Mexico",
-    "Micronesia",
-    "Moldova",
-    "Monaco",
-    "Mongolia",
-    "Montenegro",
-    "Morocco",
-    "Mozambique",
-    "Myanmar (Burma)",
-    "Namibia",
-    "Nauru",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nicaragua",
-    "Niger",
-    "Nigeria",
-    "North Korea",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Palau",
-    "Palestine",
-    "Panama",
-    "Papua New Guinea",
-    "Paraguay",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Qatar",
-    "Romania",
-    "Russia",
-    "Rwanda",
-    "Saint Kitts and Nevis",
-    "Saint Lucia",
-    "Saint Vincent and the Grenadines",
-    "Samoa",
-    "San Marino",
-    "Sao Tome and Principe",
-    "Saudi Arabia",
-    "Senegal",
-    "Serbia",
-    "Seychelles",
-    "Sierra Leone",
-    "Singapore",
-    "Slovakia",
-    "Slovenia",
-    "Solomon Islands",
-    "Somalia",
-    "South Africa",
-    "South Korea",
-    "South Sudan",
-    "Spain",
-    "Sri Lanka",
-    "Sudan",
-    "Suriname",
-    "Swaziland",
-    "Sweden",
-    "Switzerland",
-    "Syria",
-    "Taiwan",
-    "Tajikistan",
-    "Tanzania",
-    "Thailand",
-    "Timor-Leste",
-    "Togo",
-    "Tonga",
-    "Trinidad and Tobago",
-    "Tunisia",
-    "Turkey",
-    "Turkmenistan",
-    "Tuvalu",
-    "Uganda",
-    "Ukraine",
-    "United Arab Emirates (UAE)",
-    "United Kingdom (UK)",
-    "United States of America (USA)",
-    "Uruguay",
-    "Uzbekistan",
-    "Vanuatu",
-    "Vatican City (Holy See)",
-    "Venezuela",
-    "Vietnam",
-    "Yemen",
-    "Zambia",
-    "Zimbabwe"
+const dataSet = [
+    {'name':'Asia Tools PVT LTD', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'China','items':['A','B']},
+    {'name':'Alibaba Constructions', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg','country': 'Sri Lanka','items':['D','B']},
+    {'name':'Asia Metals Industries', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'India','items':['E','B']},
+    {'name':'Lanwa SL', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'Japan','items':['A','C']},
 ];
 
 class ViewAllVendors extends Component {
     state = {
-        dataSet: countries,
-        filteredSet: countries,
-        searchValue: "",
-        modalOpen: false
+        dataSet: dataSet,
+        filteredSet: dataSet,
+        searchValue1: "",
+        searchValue2: "",
+        searchValue3: ""
     };
 
-    handleSearch = event => this.setState({ searchValue: event.target.value }, () => this.searchForCountry());
+    handleSearch1 = event => this.setState({ searchValue1: event.target.value }, () => this.searchForName());
+    handleSearch2 = event => this.setState({ searchValue2: event.target.value }, () => this.searchForItems());
+    handleSearch3 = event => this.setState({ searchValue3: event.target.value }, () => this.searchForCountry());
 
-    searchForCountry = () => {
+    searchForName = () => {
         this.setState(prevState => {
             const filteredSet = prevState.dataSet.filter(item =>
-                item.toLowerCase().match(this.state.searchValue.toLowerCase())
+                item.name.toLowerCase().match(this.state.searchValue1.toLowerCase())
             );
             return { filteredSet };
         });
     };
 
-    toggleModal = () => this.setState({ modalOpen: !this.state.modalOpen });
+    searchForItems = () => {
+        this.setState(prevState => {
+            const filteredSet = prevState.dataSet.filter(item =>
+                item.items[0].toLowerCase().match(this.state.searchValue2.toLowerCase())
+            );
+            return { filteredSet };
+        });
+    };
+
+    searchForCountry = () => {
+        this.setState(prevState => {
+            const filteredSet = prevState.dataSet.filter(item =>
+                item.country.toLowerCase().match(this.state.searchValue3.toLowerCase())
+            );
+            return { filteredSet };
+        });
+    };
 
     render() {
         return (
             <MDBContainer>
-                <SectionContainer header="All Vendorss">
+                <SectionContainer header="All Vendors">
                     <MDBRow>
+                        <MDBCol md="4">
+                            <label>Name</label>
+                            <form className="form-inline active-cyan-4 mb-4">
+
+                                <input
+                                    className="form-control form-control-sm mr-3 w-75"
+                                    type="text"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    value={this.state.searchValue1}
+                                    onChange={this.handleSearch1}
+                                />
+                                <MDBIcon icon="search" aria-hidden="true" />
+                            </form>
+                        </MDBCol>
+                        <MDBCol md="4">
+                            <label>Items</label>
+                            <form className="form-inline active-cyan-4 mb-4">
+
+                                <input
+                                    className="form-control form-control-sm mr-3 w-75"
+                                    type="text"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    value={this.state.searchValue2}
+                                    onChange={this.handleSearch2}
+                                />
+                                <MDBIcon icon="search" aria-hidden="true" />
+                            </form>
+                        </MDBCol>
                         <MDBCol md="4">
                             <label>Country</label>
                             <form className="form-inline active-cyan-4 mb-4">
@@ -256,36 +107,36 @@ class ViewAllVendors extends Component {
                                     type="text"
                                     placeholder="Search"
                                     aria-label="Search"
-                                    value={this.state.searchValue}
-                                    onChange={this.handleSearch}
+                                    value={this.state.searchValue3}
+                                    onChange={this.handleSearch3}
                                 />
                                 <MDBIcon icon="search" aria-hidden="true" />
                             </form>
                         </MDBCol>
                     </MDBRow>
                     <MDBRow>
-
                                     {this.state.filteredSet.map(item => (
-
                                         <MDBCol md="3" className="mx-auto" key={item}>
                                             <MDBCardGroup deck className="mt-3">
                                                 <MDBListGroup>
                                                     <MDBAnimation type="zoomIn" duration="500ms">
                                                         <MDBCard>
                                                         <MDBCardImage
-                                                        src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                                        src={item.image}
                                                         alt="MDBCard image cap"
                                                         top
                                                         hover
                                                         overlay="white-slight"
                                                         />
                                                         <MDBCardBody>
-                                                        <MDBCardTitle tag="h5">{item}</MDBCardTitle>
+                                                        <MDBCardTitle tag="h5">{item.name}</MDBCardTitle>
                                                         <MDBCardText>
-                                                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                                                            Country: {item.country}
+                                                            <br/>
+                                                            Items: {item.items}
                                                         </MDBCardText>
                                                         <MDBBtn color="light-blue" size="md">
-                                                        read more
+                                                        View Data
                                                         </MDBBtn>
                                                         </MDBCardBody>
                                                         </MDBCard>
@@ -294,8 +145,6 @@ class ViewAllVendors extends Component {
                                             </MDBCardGroup>
                                         </MDBCol>
                                     ))}
-
-
                     </MDBRow>
                 </SectionContainer>
             </MDBContainer>
