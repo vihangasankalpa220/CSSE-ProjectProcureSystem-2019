@@ -28,7 +28,7 @@ const V1HomePage = () => {
                     <MenuLink to="/vendor/add" title="Add Vendor" />
                     <MenuLink to="/vendor/all" title="View All Vendors" />
                     <MenuLink to="/vendor/update" title="Update Vendor" />
-                    <MenuLink to="/vendor/details" title="View One Vendor" />
+                    <MenuLink to="/vendor/details/1" title="View One Vendor" />
                     <MenuLink to="/vendor/dashboard" title="Dashboard" />
                     <MenuLink to="/vendor/reporting" title="Reporting" />
                     
