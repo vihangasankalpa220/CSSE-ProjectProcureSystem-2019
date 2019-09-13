@@ -15,22 +15,26 @@ import {
     MDBListGroup,
 } from "mdbreact";
 import SectionContainer from "../../components/sectionContainer";
+const axios = require('axios');
+const env = require('dotenv').config();
 
-const dataSet = [
-    {'name':'Asia Tools PVT LTD', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'China','items':['A','B']},
-    {'name':'Alibaba Constructions', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg','country': 'Sri Lanka','items':['D','B']},
-    {'name':'Asia Metals Industries', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'India','items':['E','B']},
-    {'name':'Lanwa SL', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'Japan','items':['A','C']},
-];
-
+ const data = [
+     {'name':'Asia Tools PVT LTD', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'China','items':['A','B']},
+     {'name':'Alibaba Constructions', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg','country': 'Sri Lanka','items':['D','B']},
+     {'name':'Asia Metals Industries', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'India','items':['E','B']},
+     {'name':'Lanwa SL', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'Japan','items':['A','C']}]
 class ViewAllVendors extends Component {
-    state = {
-        dataSet: dataSet,
-        filteredSet: dataSet,
-        searchValue1: "",
-        searchValue2: "",
-        searchValue3: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            message : '',
+            dataSet: data,
+            filteredSet: data,
+            searchValue1: "",
+            searchValue2: "",
+            searchValue3: ""
+        };
+    }
 
     handleSearch1 = event => this.setState({ searchValue1: event.target.value }, () => this.searchForName());
     handleSearch2 = event => this.setState({ searchValue2: event.target.value }, () => this.searchForItems());
@@ -62,6 +66,23 @@ class ViewAllVendors extends Component {
             return { filteredSet };
         });
     };
+
+    componentDidMount() {
+        const self = this;
+        // Make a request to fetch data
+        axios.get(process.env.REACT_APP_GET_ALL_VENDORS)
+            .then(function (response) {
+                console.log(response);
+                self.data = [response.data.data];
+                //self.setState({message : response.data.message, dataSet: JSON.stringify(response.data.data), filteredSet: response.data.data})
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    }
 
     render() {
         return (
@@ -116,7 +137,7 @@ class ViewAllVendors extends Component {
                     </MDBRow>
                     <MDBRow>
                                     {this.state.filteredSet.map(item => (
-                                        <MDBCol md="3" className="mx-auto" key={item}>
+                                        <MDBCol md="3" className="mx-auto" key={item.name}>
                                             <MDBCardGroup deck className="mt-3">
                                                 <MDBListGroup>
                                                     <MDBAnimation type="zoomIn" duration="500ms">
