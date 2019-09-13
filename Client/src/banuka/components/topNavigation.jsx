@@ -1,5 +1,7 @@
+// eslint-disable-next-line to the line before
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+
 
 class TopNavigation extends Component {
     state = {
