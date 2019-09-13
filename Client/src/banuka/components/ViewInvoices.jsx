@@ -4,8 +4,6 @@ import SideNavigation from "./sideNavigation";
 export default class ViewInvoices extends Component{
     
     render(){
-
-        
         return(
             <div>
                 <div className="container-fluid">
@@ -14,7 +12,6 @@ export default class ViewInvoices extends Component{
                         <div className="col-md-6 col-6">
                             <h1>View Invoice</h1>
                         </div>
-                        
                     </div>
                 </div>
             </div>

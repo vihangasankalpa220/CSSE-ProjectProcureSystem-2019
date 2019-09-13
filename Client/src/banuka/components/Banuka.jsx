@@ -11,9 +11,13 @@ export default class Banuka extends Component {
       <div className="flexible-content">
         {/* <TopNavigation /> */}
         <SideNavigation />
-        <main id="content" className="p-5">
+
+        {/* <main id="content" className="p-5">
           <Routes/>
-        </main>
+        </main> */}
+
+        
+
         {/* <Footer /> */}
       </div>
     );
