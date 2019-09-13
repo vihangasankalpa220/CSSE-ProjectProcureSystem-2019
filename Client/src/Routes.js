@@ -22,6 +22,12 @@ import VendorDashboard from "./asiri/pages/vendorDashboard";
 //imports from Banuka
 import Banuka from './components/banuka/Banuka'
 
+
+//imports from vihanga
+import addorder from "./vihanga/pages/addOrder";
+
+
+
 // FREE
 import AnimationPage from "./pages/AnimationPage";
 import AlertPage from "./pages/AlertPage";
@@ -75,6 +81,7 @@ import InputGroupPage from './pages/InputGroupPage'
 import TreeviewPage from './pages/TreeviewPage'
 
 
+
 class Routes extends React.Component {
   render() {
     return (
@@ -98,9 +105,11 @@ class Routes extends React.Component {
           {/* end of Routs for jananath */}
 
 
-          {/* Routs for jananath */}
+          {/* Routs for vihanga */}
 
-          {/* end of Routs for jananath */}
+          <Route exact path="/orders/addorders" component={addorder} />
+          {/* end of Routs for vihanga */}
+
 
 
         <Route exact path="/" component={HomePage} />
@@ -124,6 +133,9 @@ class Routes extends React.Component {
         <Route exact path="/vendor/all" component={ViewAllVendors} ></Route>
         <Route exact path="/vendor/details/:id" component={ViewVendorDetails}></Route>
         <Route exact path="/vendor/dashboard" component={VendorDashboard} ></Route>
+
+          {/* Routes of Vihanga */}
+          <Route exact path="/orders/addorders" component={addorder} ></Route>
 
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />

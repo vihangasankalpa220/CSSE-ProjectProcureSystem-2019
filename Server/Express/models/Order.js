@@ -1,24 +1,23 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const UserSchema = new Schema({
-    first_name: {
+const OrderSchema = new Schema({
+    order_id:{
+        type:String
+    },
+    order_name: {
         type: String
     },
-    last_name: {
+    order_qty: {
         type: String
     },
-    email: {
+    type: {
         type: String,
         required: true
     },
-    password: {
+    discription: {
         type: String,
         required: true
-    },
-    role:{
-        type:String,
-        required:true
     },
     date: {
         type: Date,
@@ -26,4 +25,4 @@ const UserSchema = new Schema({
     }
 })
 
-module.exports = User = mongoose.model('users', UserSchema)
+module.exports = Order = mongoose.model('orders', OrderSchema)

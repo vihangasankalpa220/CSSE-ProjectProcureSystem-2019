@@ -33,7 +33,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+
+const mongoURI='mongodb://localhost:27017/procuresystem'
+
+mongoose.connect(mongoURI,{useNewUrlParser:true})
+    .then(()=>console.log("MongoDB Connected"))
+    .catch(err=>console.log(err))
+
+
 app.use('/data', itemsRouter);
+
+const Orders = require('./routes/Orders');
+
+app.use('/orders', Orders)
 
 
 // catch 404 and forward to error handler
@@ -52,16 +67,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const mongoURI='mongodb://localhost:27017/procuresystem'
-
-mongoose.connect(mongoURI,{useNewUrlParser:true})
-    .then(()=>console.log("MongoDB Connected"))
-    .catch(err=>console.log(err))
 
 
-const Users = require('./routes/Users');
-
-app.use('/users', Users)
 
 app.listen(port, () => {
   console.log("Server is running on port: " + port)
