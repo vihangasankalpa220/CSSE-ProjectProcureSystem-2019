@@ -20,7 +20,11 @@ import ViewVendorDetails from "./asiri/pages/viewVendorDetails";
 import VendorDashboard from "./asiri/pages/vendorDashboard";
 
 //imports from Banuka
-import Banuka from './components/banuka/Banuka'
+import Banuka from './banuka/components/Banuka';
+import BanukaDashboard from './banuka/components/Dashboard';
+import BanukaCreate from './banuka/components/CreateInvoice'
+import BanukaViewInvoices from './banuka/components/ViewInvoices'
+
 
 // FREE
 import AnimationPage from "./pages/AnimationPage";
@@ -73,6 +77,7 @@ import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
 import InputGroupPage from './pages/InputGroupPage'
 import TreeviewPage from './pages/TreeviewPage'
+import CreateInvoice from "./banuka/components/CreateInvoice";
 
 
 class Routes extends React.Component {
@@ -95,6 +100,7 @@ class Routes extends React.Component {
 
           {/* Routs for jananath */}
 
+
           {/* end of Routs for jananath */}
 
 
@@ -114,7 +120,10 @@ class Routes extends React.Component {
         <Route exact path="/tables" component={TablesNavPage} />
 
         {/* Routes of Banuka */}
-        <Route exact path="/banuka" component={Banuka}></Route>
+        <Route exact path="/banuka/dashboard" component={BanukaDashboard}></Route>
+        <Route exact path="/banuka/create" component={BanukaCreate}></Route>
+        <Route exact path="/banuka/view" component={BanukaViewInvoices}></Route>
+        
 
         {/* Routes of Asiri */}
         <Route exact path="/vendor/add" component={AddVendor}></Route>
