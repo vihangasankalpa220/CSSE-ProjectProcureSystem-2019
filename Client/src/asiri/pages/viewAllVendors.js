@@ -19,10 +19,10 @@ const axios = require('axios');
 const env = require('dotenv').config();
 
  const data = [
-     {'name':'Asia Tools PVT LTD', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'China','items':['A','B']},
-     {'name':'Alibaba Constructions', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg','country': 'Sri Lanka','items':['D','B']},
-     {'name':'Asia Metals Industries', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'India','items':['E','B']},
-     {'name':'Lanwa SL', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'Japan','items':['A','C']}]
+     {'id':'1','name':'Asia Tools PVT LTD', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'China','items':['A','B']},
+     {'id':'2','name':'Alibaba Constructions', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg','country': 'Sri Lanka','items':['D','B']},
+     {'id':'3','name':'Asia Metals Industries', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'India','items':['E','B']},
+     {'id':'4','name':'Lanwa SL', 'image':'https://mdbootstrap.com/img/Photos/Others/images/16.jpg', 'country': 'Japan','items':['A','C']}]
 class ViewAllVendors extends Component {
     constructor(props) {
         super(props);
@@ -137,7 +137,7 @@ class ViewAllVendors extends Component {
                     </MDBRow>
                     <MDBRow>
                                     {this.state.filteredSet.map(item => (
-                                        <MDBCol md="3" className="mx-auto" key={item.name}>
+                                        <MDBCol md="3" className="mx-auto" key={item.id}>
                                             <MDBCardGroup deck className="mt-3">
                                                 <MDBListGroup>
                                                     <MDBAnimation type="zoomIn" duration="500ms">
@@ -156,7 +156,7 @@ class ViewAllVendors extends Component {
                                                             <br/>
                                                             Items: {item.items}
                                                         </MDBCardText>
-                                                        <MDBBtn color="light-blue" size="md">
+                                                        <MDBBtn href={'details/'+item.id} color="light-blue" size="md">
                                                         View Data
                                                         </MDBBtn>
                                                         </MDBCardBody>
