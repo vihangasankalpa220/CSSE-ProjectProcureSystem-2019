@@ -13,7 +13,8 @@ response = Response()
 @app.route('/', methods=['GET'])
 def home():
     #res = db.findone({'test': 'test data'}, 2)
-    return 0
+    data = 0
+    return data
 
 # Get vendor by ID
 @app.route('/api/proc/vendors', methods=['GET'])

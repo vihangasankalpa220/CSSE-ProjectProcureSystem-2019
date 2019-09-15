@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d5b341b-671b-4dc7-92d1-8e416a461ff1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Client/src/asiri/pages/viewVendorDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/src/asiri/pages/viewVendorDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/src/pages/temp/v1_home_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/src/pages/temp/v1_home_page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,6 +73,8 @@
       <updated>1567955157258</updated>
       <workItem from="1567955160001" duration="6208000" />
       <workItem from="1567999695559" duration="6000" />
+      <workItem from="1568540883999" duration="453000" />
+      <workItem from="1568541674832" duration="728000" />
     </task>
     <servers />
   </component>
