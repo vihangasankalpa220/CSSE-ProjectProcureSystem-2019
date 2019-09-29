@@ -8,7 +8,7 @@ import {
 } from "mdbreact";
 import SectionContainer from "../../components/sectionContainer";
 
-export default class editOrder extends Component {
+export default class editStock extends Component {
 
     constructor(props) {
         super(props);
@@ -17,7 +17,8 @@ export default class editOrder extends Component {
         this.onfinal =this.onfinal.bind(this);
 
         this.state = {
-            order_no :'',
+           stock_no :'',
+            order_no:'',
             po_number:'',
             currency: '',
             subtotal: '',
@@ -33,9 +34,10 @@ export default class editOrder extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/business/edit/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/stock/edits/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
+                    stock_no:response.data.stock_no,
                     order_no :response.data.order_no,
                     po_number:response.data.po_number,
                     currency: response.data.currency,
@@ -62,7 +64,8 @@ export default class editOrder extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-       const obj = {
+        const obj = {
+          //  stock_no:this.state.stock_no,
             order_no :this.state.order_no,
             po_number:this.state.po_number,
             currency: this.state.currency,
@@ -76,16 +79,17 @@ export default class editOrder extends Component {
             slot:this.state.slot,
             status:this.state.status
         };
-        axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
+        axios.post('http://localhost:4000/business/adds/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-     //  this.props.history.push('/index');*/
+        //  this.props.history.push('/index');*/
     }
 
 
     onfinal(e) {
         e.preventDefault();
         const obj = {
+       //    stock_no:this.state.stock_no,
             order_no :this.state.order_no,
             po_number:this.state.po_number,
             currency: this.state.currency,
@@ -99,9 +103,9 @@ export default class editOrder extends Component {
             slot:this.state.slot,
             status:this.state.status
         };
-        axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
+        axios.post('http://localhost:4000/business/adds/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data))
-        .catch(err=>console.log(err.data));
+            .catch(err=>console.log(err.data));
 
         this.props.history.push('/index');
     }
@@ -115,13 +119,13 @@ export default class editOrder extends Component {
 
 
 
-        toggle = nr => () => {
-            let modalNumber = "modal" + nr;
-            this.setState({
-                [modalNumber]: !this.state[modalNumber]
-            });
+    toggle = nr => () => {
+        let modalNumber = "modal" + nr;
+        this.setState({
+            [modalNumber]: !this.state[modalNumber]
+        });
 
-        };
+    };
 
 
 
@@ -138,6 +142,14 @@ export default class editOrder extends Component {
                             <MDBCol md="8" className="mx-auto">
                                 <SectionContainer header="Edit Order">
                                     <form onSubmit={this.onSubmit}>
+
+                                        <div className="form-group">
+                                            <label htmlFor="stock_no">stock_no</label>
+                                            <input type="text" className="form-control" name="stock_no"
+                                                   placeholder="stock_no"   value={this.state.stock_no}
+                                                   onChange={this.onChange}/>
+                                        </div>
+
 
                                         <div className="form-group">
                                             <label htmlFor="order_no">order_no</label>
@@ -254,7 +266,7 @@ export default class editOrder extends Component {
                                         <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)}>
                                             <MDBModalHeader toggle={this.toggle(2)}>Modal title</MDBModalHeader>
                                             <MDBModalBody>
-                                             Do You Really want to save edited content
+                                                Do You Really want to save edited content
                                             </MDBModalBody>
                                             <MDBModalFooter>
                                                 <MDBBtn color="secondary" onClick={this.toggle(2)}>
