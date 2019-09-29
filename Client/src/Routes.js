@@ -20,16 +20,14 @@ import ViewVendorDetails from "./asiri/pages/viewVendorDetails";
 import VendorDashboard from "./asiri/pages/vendorDashboard";
 
 //imports from Banuka
-import Banuka from './banuka/components/Banuka';
-import BanukaDashboard from './banuka/components/Dashboard';
-import BanukaCreate from './banuka/components/CreateInvoice'
-import BanukaViewInvoices from './banuka/components/ViewInvoices'
-
+import Banuka from './components/banuka/Banuka'
 
 
 //imports from vihanga
 import addorder from "./vihanga/pages/addOrder";
-
+import editOrder from "./vihanga/pages/editOrder";
+import viewOrders from "./vihanga/pages/viewOrders";
+import ViewAllOrders from "./vihanga/pages/viewAllOrders";
 
 
 // FREE
@@ -83,7 +81,9 @@ import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
 import InputGroupPage from './pages/InputGroupPage'
 import TreeviewPage from './pages/TreeviewPage'
-import CreateInvoice from "./banuka/components/CreateInvoice";
+
+
+
 
 
 
@@ -107,13 +107,15 @@ class Routes extends React.Component {
 
           {/* Routs for jananath */}
 
-
           {/* end of Routs for jananath */}
 
 
           {/* Routs for vihanga */}
 
           <Route exact path="/orders/addorders" component={addorder} />
+          <Route exact path='/edit/:id' component={ editOrder } />
+          <Route exact path='/index' component={ viewOrders } />
+          <Route exact path="/orders/all" component={ViewAllOrders} />
           {/* end of Routs for vihanga */}
 
 
@@ -129,10 +131,7 @@ class Routes extends React.Component {
         <Route exact path="/tables" component={TablesNavPage} />
 
         {/* Routes of Banuka */}
-        <Route exact path="/banuka/dashboard" component={BanukaDashboard}></Route>
-        <Route exact path="/banuka/create" component={BanukaCreate}></Route>
-        <Route exact path="/banuka/view" component={BanukaViewInvoices}></Route>
-        
+        <Route exact path="/banuka" component={Banuka}></Route>
 
         {/* Routes of Asiri */}
         <Route exact path="/vendor/add" component={AddVendor}></Route>
@@ -144,7 +143,10 @@ class Routes extends React.Component {
         <Route exact path="/vendor/dashboard" component={VendorDashboard} ></Route>
 
           {/* Routes of Vihanga */}
-          <Route exact path="/orders/addorders" component={addorder} ></Route>
+          <Route exact path="/orders/addorders" component={addorder} />
+          <Route exact path='/edit/:id' component={ editOrder } />
+          <Route exact path='/index' component={ viewOrders } />
+          <Route exact path="/orders/all" component={ViewAllOrders} />
 
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />
