@@ -7,7 +7,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./DB.js');
 const businessRoute = require('./routes/business.route');
-
+const stockssRoute = require('./routes/stock.route');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 
 app.use('/business', businessRoute);
 
+app.use('/stock', stockssRoute);
 
 
 
