@@ -1,19 +1,24 @@
 {
-  "name": "ProcurementSystem",
+  "name": "procurementsystem",
   "version": "0.1.1",
-  "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "jwt-decode": "^2.2.0",
+    "dotenv": "latest",
+    "dotenv-webpack": "^1.7.0",
     "mdbreact": "4.19.1",
     "react": "^16.8.6",
+    "react-chartjs-2": "latest",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
     "react-router-dom": "^5.0.1",
-    "react-chartjs-2": "latest"
+    "react-scripts": "3.0.1",
+    "google-map-react": "^1.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "renamer": "^1.0.0",

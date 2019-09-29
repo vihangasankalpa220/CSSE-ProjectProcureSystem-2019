@@ -25,7 +25,9 @@ import Banuka from './components/banuka/Banuka'
 
 //imports from vihanga
 import addorder from "./vihanga/pages/addOrder";
-
+import editOrder from "./vihanga/pages/editOrder";
+import viewOrders from "./vihanga/pages/viewOrders";
+import ViewAllOrders from "./vihanga/pages/viewAllOrders";
 
 
 // FREE
@@ -82,6 +84,9 @@ import TreeviewPage from './pages/TreeviewPage'
 
 
 
+
+
+
 class Routes extends React.Component {
   render() {
     return (
@@ -108,6 +113,9 @@ class Routes extends React.Component {
           {/* Routs for vihanga */}
 
           <Route exact path="/orders/addorders" component={addorder} />
+          <Route exact path='/edit/:id' component={ editOrder } />
+          <Route exact path='/index' component={ viewOrders } />
+          <Route exact path="/orders/all" component={ViewAllOrders} />
           {/* end of Routs for vihanga */}
 
 
@@ -135,7 +143,10 @@ class Routes extends React.Component {
         <Route exact path="/vendor/dashboard" component={VendorDashboard} ></Route>
 
           {/* Routes of Vihanga */}
-          <Route exact path="/orders/addorders" component={addorder} ></Route>
+          <Route exact path="/orders/addorders" component={addorder} />
+          <Route exact path='/edit/:id' component={ editOrder } />
+          <Route exact path='/index' component={ viewOrders } />
+          <Route exact path="/orders/all" component={ViewAllOrders} />
 
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />

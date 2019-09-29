@@ -7,17 +7,18 @@ import {
   MDBCollapse,
   MDBNavItem,
   MDBFooter,
-  MDBNavLink
+  MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from "mdbreact";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./Routes";
+import SectionContainer from "./pages/DropdownPage";
 
 class App extends Component {
   state = {
     collapseID: ""
   };
-  
+
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
@@ -137,14 +138,61 @@ class App extends Component {
                     <strong>Banuka</strong>
                   </MDBNavLink>
                 </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                      onClick={this.closeCollapse("mainNavbarCollapse")}
-                      to="/orders/addorders"
-                  >
-                    <strong>Vihanga</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
+
+
+
+                <MDBDropdown>
+                  <MDBDropdownToggle caret color="primary">
+                  Vihanga
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu>
+                    <MDBDropdownItem className="success-color-dark">
+                      <MDBNavItem >
+                      <MDBNavLink
+                          onClick={this.closeCollapse("mainNavbarCollapse")}
+                          to="/orders/addorders"
+                      >
+                       <strong>Vihanga</strong>
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem className="success-color-dark">
+                      <MDBNavItem>
+                      <MDBNavLink
+                          onClick={this.closeCollapse("mainNavbarCollapse")}
+                          to="/edit/:id"
+                      >
+                        <strong>Edit Orders</strong>
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem className="success-color-dark">
+                      <MDBNavItem>
+                        <MDBNavLink
+                            onClick={this.closeCollapse("mainNavbarCollapse")}
+                            to="/index"
+                        >
+                          <strong>View Orders</strong>
+                        </MDBNavLink>
+                      </MDBNavItem>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem className="success-color-dark">
+                      <MDBNavItem>
+                        <MDBNavLink
+                            onClick={this.closeCollapse("mainNavbarCollapse")}
+                            to="/orders/all"
+                        >
+                          <strong>View All Orders</strong>
+                        </MDBNavLink>
+                      </MDBNavItem>
+                    </MDBDropdownItem>
+
+
+                  </MDBDropdownMenu>
+                </MDBDropdown>
 
 
                 <MDBNavItem>
