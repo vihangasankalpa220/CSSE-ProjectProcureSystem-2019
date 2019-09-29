@@ -18,6 +18,20 @@ businessRoutes.route('/add').post(function (req, res) {
     });
 });
 
+
+
+businessRoutes.route('/adds').post(function (req, res) {
+    let business = new Business(req.body);
+    business.save()
+        .then(business => {
+            res.status(200).json({'business': 'business in added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send("unable to save to database");
+        });
+});
+
+
 // Defined get data(index or listing) route
 businessRoutes.route('/').get(function (req, res) {
     Business.find(function(err, businesses){
@@ -68,6 +82,9 @@ businessRoutes.route('/update/:id').post(function (req, res) {
     }
   });
 });
+
+
+
 
 // Defined delete | remove | destroy route
 businessRoutes.route('/delete/:id').get(function (req, res) {
