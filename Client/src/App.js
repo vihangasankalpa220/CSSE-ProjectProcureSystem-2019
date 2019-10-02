@@ -7,12 +7,12 @@ import {
   MDBCollapse,
   MDBNavItem,
   MDBFooter,
-  MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  MDBNavLink
 } from "mdbreact";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./Routes";
-import SectionContainer from "./pages/DropdownPage";
+
 
 class App extends Component {
   state = {
@@ -141,58 +141,6 @@ class App extends Component {
 
 
 
-                <MDBDropdown>
-                  <MDBDropdownToggle caret color="primary">
-                  Vihanga
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                    <MDBDropdownItem className="success-color-dark">
-                      <MDBNavItem >
-                      <MDBNavLink
-                          onClick={this.closeCollapse("mainNavbarCollapse")}
-                          to="/orders/addorders"
-                      >
-                       <strong>Vihanga</strong>
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem className="success-color-dark">
-                      <MDBNavItem>
-                      <MDBNavLink
-                          onClick={this.closeCollapse("mainNavbarCollapse")}
-                          to="/edit/:id"
-                      >
-                        <strong>Edit Orders</strong>
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem className="success-color-dark">
-                      <MDBNavItem>
-                        <MDBNavLink
-                            onClick={this.closeCollapse("mainNavbarCollapse")}
-                            to="/index"
-                        >
-                          <strong>View Orders</strong>
-                        </MDBNavLink>
-                      </MDBNavItem>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem className="success-color-dark">
-                      <MDBNavItem>
-                        <MDBNavLink
-                            onClick={this.closeCollapse("mainNavbarCollapse")}
-                            to="/orders/all"
-                        >
-                          <strong>View All Orders</strong>
-                        </MDBNavLink>
-                      </MDBNavItem>
-                    </MDBDropdownItem>
-
-
-                  </MDBDropdownMenu>
-                </MDBDropdown>
 
 
                 <MDBNavItem>
