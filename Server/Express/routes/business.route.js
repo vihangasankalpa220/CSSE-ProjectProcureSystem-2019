@@ -20,16 +20,6 @@ businessRoutes.route('/add').post(function (req, res) {
 
 
 
-businessRoutes.route('/adds').post(function (req, res) {
-    let business = new Business(req.body);
-    business.save()
-        .then(business => {
-            res.status(200).json({'business': 'business in added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send("unable to save to database");
-        });
-});
 
 
 // Defined get data(index or listing) route
@@ -66,6 +56,7 @@ businessRoutes.route('/update/:id').post(function (req, res) {
             business.person_name= req.body.person_name;
             business.business_name= req.body.business_name;
             business.qty= req.body.qty;
+            business.cusqty=req.body.cusqty;
             business.payment= req.body.payment;
             business.bill_address= req.body.bill_address;
             business.ship_address= req.body.ship_address;

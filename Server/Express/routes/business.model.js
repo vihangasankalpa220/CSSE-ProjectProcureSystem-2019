@@ -3,8 +3,11 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for Business
 let Business = new Schema({
-  order_no :{
+  stock_no:{
     type:String
+  },
+  order_no :{
+    type:Number,
   },
   po_number:{
     type:String
@@ -23,6 +26,9 @@ let Business = new Schema({
   },
   qty: {
     type: Number
+  },
+  cusqty:{
+    type:Number
   },
   payment:{
     type:String
