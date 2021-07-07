@@ -20,7 +20,7 @@ import ViewVendorDetails from "./asiri/pages/viewVendorDetails";
 import VendorDashboard from "./asiri/pages/vendorDashboard";
 
 //imports from Banuka
-import Banuka from './components/banuka/Banuka'
+
 
 
 //imports from vihanga
@@ -139,7 +139,7 @@ class Routes extends React.Component {
         <Route exact path="/tables" component={TablesNavPage} />
 
         {/* Routes of Banuka */}
-        <Route exact path="/banuka" component={Banuka}></Route>
+        
 
         {/* Routes of Asiri */}
         <Route exact path="/vendor/add" component={AddVendor}></Route>
